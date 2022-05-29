@@ -1,9 +1,11 @@
+import React from 'react';
+
 const App = () => {
-  rerturn (
+  return (
     <div>
       <h1>Hello World</h1>
     </div>
   )
 }
 
-export default App;
+export default App

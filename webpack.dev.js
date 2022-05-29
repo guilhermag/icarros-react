@@ -1,4 +1,4 @@
-const { DefinePlugin } = require('webpack');
+// const { DefinePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common');
 const { merge } = require('webpack-merge')
@@ -28,6 +28,10 @@ module.exports = merge(common, {
             loader: 'sass-loader',
           }
         ]
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: 'asset/resource',
       }
     ]
   },

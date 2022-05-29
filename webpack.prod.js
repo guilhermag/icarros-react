@@ -1,4 +1,4 @@
-const { DefinePlugin } = require('webpack');
+// const { DefinePlugin } = require('webpack');
 
 const HtmlWebpackPlugin =require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -31,9 +31,11 @@ module.exports = merge( common, {
           {
             loader: 'sass-loader'
           }
-        
         ]
-        
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: 'asset/resource',
       }
     ]
   },

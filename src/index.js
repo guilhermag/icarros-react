@@ -9,10 +9,9 @@ const root = ReactDOM.createRoot(
   document.getElementById('main')
 );
 
+// aula parou em 2:08, dia 26/05
 root.render(
   <React.StrictMode>
-    <Nav />
     <App />
-    <Footer />
   </React.StrictMode>
 )

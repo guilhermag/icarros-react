@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { toast } from 'react-toastify';
+import Lottie from 'lottie-react-web';
+import { useNavigate } from 'react-router-dom';
 
 import { api } from '@/services/api';
+
+import batman from '@/animation/batman.json'
 
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
@@ -8,14 +13,35 @@ import Footer from '@/components/Footer'
 import { FormContainer, ContactCard } from './style';
 
 const Contact = () => {
+  const navigate = useNavigate();
+
   const [ data, setData ] = useState();
+  const [ isSending, setIsSendind ] = useState(false);
+
+  const sendData = useCallback((e) => {
+    e.preventDefault();
+    setIsSendind(true);
+    api.post('', data)
+      .then(() => {
+        toast.success('Mensagem enviada com sucesso', {
+          type: 'success',
+          onClose: () => {
+            navigate('/');
+          }
+        })})
+      .catch(() => toast.error('ERRO', {
+        type: 'error'
+      })).finally(() => {
+        setIsSendind(false);
+      })
+  }, [data]);
   return (
     <div>
       <Nav />
       <FormContainer>
         <h1>Contact</h1>
         <ContactCard>
-          <form action="">
+          <form onSubmit={sendData}>
             <input 
               type="text" 
               placeholder='Informe seu nome'
@@ -31,7 +57,17 @@ const Contact = () => {
               placeholder='Informe seu telefone'
               onChange={e => setData({...data, phone: e.target.value})}
               />
-            <input type="submit" value="Enviar" />
+              {
+                !isSending ? (
+                  <>
+                    <input type="submit" value="Enviar" />
+                  </>
+                ) : (
+                  <>
+                    <Lottie options={{animationData: batman}} />
+                  </>
+                )
+              }
           </form>
         </ContactCard>
       </FormContainer>

@@ -14,15 +14,15 @@ const Home = () => {
     <div>
       <Nav />
       <HomeSection>
-        <h1>Página de Home</h1>
+        <h1>BatHome</h1>
         {
           isLoad ? (
           <>
-            <p>Carregando</p>
+            <p>Bruce Wayne</p>
           </>
         ) : (
           <>
-            <p>Pronto</p>
+            <p>Batman</p>
           </>
         )
         }

@@ -39,7 +39,7 @@ const Contact = () => {
     <div>
       <Nav />
       <FormContainer>
-        <h1>Contact</h1>
+        <h1>BatContato</h1>
         <ContactCard>
           <form onSubmit={sendData}>
             <input 

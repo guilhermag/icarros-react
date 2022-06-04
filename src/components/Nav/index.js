@@ -10,8 +10,9 @@ const Nav = () => {
     <NavContent>
       <div className="container">
         <img src={Card} alt="foto batmobile" width={200} height={'auto'}/>
-        <Link to="/">Home</Link>
-        <Link to="/contato">Contato</Link>
+        <Link to="/">BatHome</Link>
+        <Link to="/contato">BatContato</Link>
+        <Link to="/login">BatLogin</Link>
       </div>
     </NavContent>
   )

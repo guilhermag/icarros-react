@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const NavContent = styled.nav`
-  background-color: red;
-  height: 400px;
+  background-color: gray;
+  height: 200px;
 
   .container {
     max-width: 80%;
@@ -10,6 +10,7 @@ export const NavContent = styled.nav`
   }
 
   a {
+    margin-left: 1rem;
     text-decoration: none;
     color: white;
   }

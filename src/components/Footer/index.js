@@ -5,7 +5,7 @@ import { FooterContent } from './style'
 const Footer = () => {
   return (
     <FooterContent>
-      <p>Rodapé</p>
+      <p>BatRodapé</p>
     </FooterContent>
   )
 }

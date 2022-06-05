@@ -41,7 +41,3 @@ O projeto está hospedado no Netilify, podendo ser acessado por esse [link](http
 ## Créditos
 
 Aulas ministradas pelo professor [Douglas Morais](https://github.com/mrdouglasmorais), e projeto desenvolvido por Guilherme de Araujo Gabriel.
-
-## Créditos
-
-Aulas ministradas pelo professor [Douglas Morais](https://github.com/mrdouglasmorais), e projeto desenvolvido por Guilherme de Araujo Gabriel.

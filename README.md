@@ -36,7 +36,7 @@ Nessa aula foram explicados os conceitos de React e seus componentes, styled com
 
 ### Acessar o site do Projeto
 
-O projeto está hospedado no Netilify, podendo ser acessado por esse [link]().
+O projeto está hospedado no Netilify, podendo ser acessado por esse [link](https://icarros-gama-exc04-react-guilherme-gabriel.netlify.app/).
 
 ## Créditos
 

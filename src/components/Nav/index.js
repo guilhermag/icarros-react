@@ -1,21 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import { NavContent } from './style';
+import { NavContent } from "./style";
 
-import Card from '@/assets/cars/batmobile.png'
-
-const Nav = () => {
+const Nav = ({ logo, item }) => {
   return (
     <NavContent>
       <div className="container">
-        <img src={Card} alt="foto batmobile" width={200} height={'auto'}/>
-        <Link to="/">BatHome</Link>
-        <Link to="/contato">BatContato</Link>
-        <Link to="/login">BatLogin</Link>
+        <img src={logo} alt="foto batmobile" width={200} height={"auto"} />
+        {item.map((item, index) => (
+          <Link key={index} to={item.path}>
+            {item.label}
+          </Link>
+        ))}
       </div>
     </NavContent>
-  )
-}
+  );
+};
 
 export default Nav;

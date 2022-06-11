@@ -3,7 +3,7 @@ import React from 'react';
 import { Route, Navigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
-const PrivateRoute = ({children, path: Path, ...rest}) => {
+const PrivateRoute = ({children, element: Element, path: Path, ...rest}) => {
   const isLoggedIn = localStorage.getItem('@iCarrosToken');
   const isSectionActive = () => {
     if(isLoggedIn === null){
@@ -17,9 +17,7 @@ const PrivateRoute = ({children, path: Path, ...rest}) => {
     };
 
   }
-  return (
-    isSectionActive() ? children : <Navigate replace to="/" />
-  )
-}
+  return isSectionActive() ? children : (<Navigate replace to="/"/>)
+      }
 
 export default PrivateRoute;

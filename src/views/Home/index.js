@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import Nav from '@/components/Nav'
-import Footer from '@/components/Footer'
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
-import { HomeSection } from './style';
+import { HomeSection } from "./style";
+
+import Card from "@/assets/cars/batmobile.png";
+import { menuItem } from "@/shared/Constants";
 
 const Home = () => {
-
-  const [ isLoad, setIsLoad ] = useState(false);
-  const clickMe = () => alert("Clicked");
+  const [isLoad, setIsLoad] = useState(false);
 
   return (
     <div>
-      <Nav />
+      <Nav logo={Card} item={menuItem} />
       <HomeSection>
         <h1>BatHome</h1>
-        {
-          isLoad ? (
+        {isLoad ? (
           <>
             <p>Bruce Wayne</p>
           </>
@@ -24,13 +24,12 @@ const Home = () => {
           <>
             <p>Batman</p>
           </>
-        )
-        }
-        <button onClick={ () => setIsLoad(!isLoad) }>Click me</button>
+        )}
+        <button onClick={() => setIsLoad(!isLoad)}>Click me</button>
       </HomeSection>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

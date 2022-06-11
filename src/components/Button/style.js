@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const ButtonContent = styled.div`
+  button {
+    cursor: pointer;
+  }
   .success {
     background-color: green;
     color: white;

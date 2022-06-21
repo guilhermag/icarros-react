@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { FooterContent, FooterButton } from './style'
+import { FooterContent, FooterButton } from './style';
+
 
 const Footer = () => {
   return (

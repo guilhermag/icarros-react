@@ -4,13 +4,11 @@ import { ButtonContent } from "./style";
 const Button = ({ label, action, type, isDisable }) => {
   const propType = type ? type : 'success';
   return (
-    <>
-      <ButtonContent>
-        <button onClick={action} className={propType} disable={isDisable}>
-          {!isDisable ? label : "desabilitado"}
-        </button>
-      </ButtonContent>
-    </>
+    <ButtonContent>
+      <button onClick={action} className={propType} disable={isDisable}>
+        {!isDisable ? label : "desabilitado"}
+      </button>
+    </ButtonContent>
   );
 };
 

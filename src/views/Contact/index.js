@@ -1,9 +1,13 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { toast } from "react-toastify";
 import Lottie from "lottie-react-web";
 import { useNavigate } from "react-router-dom";
 
 import { api } from "@/services/api";
+
+// Redux
+import { useDispatch } from 'react-redux';
+import { addNewUser } from '@/store/module/user/reducer';
 
 import batman from "@/animation/batman.json";
 
@@ -17,35 +21,54 @@ import { FormContainer, ContactCard } from "./style";
 
 const Contact = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [data, setData] = useState();
   const [isSending, setIsSendind] = useState(false);
+  const [allUsers, setAllUsers] = useState(() => {
+    const userStorage = localStorage.getItem('@users');
+    if (userStorage) {
+      return JSON.parse(userStorage);
+    }
+    return [];
+  });
 
   const sendData = useCallback(
     (e) => {
       e.preventDefault();
       setIsSendind(true);
-      api
-        .post("", data)
-        .then(() => {
-          toast.success("Mensagem enviada com sucesso", {
-            type: "success",
-            onClose: () => {
-              navigate("/");
-            },
-          });
-        })
-        .catch(() =>
-          toast.error("ERRO", {
-            type: "error",
-          })
-        )
-        .finally(() => {
-          setIsSendind(false);
-        });
+
+      const { name, email, phone } = data;
+
+      localStorage.setItem('@users', JSON.stringify([...allUsers, { name, email, phone }]))
+      setTimeout(() => {
+        setIsSendind(false);
+      }, 500)
+      // api
+      //   .post("", data)
+      //   .then(() => {
+      //     toast.success("Mensagem enviada com sucesso", {
+      //       type: "success",
+      //       onClose: () => {
+      //         navigate("/");
+      //       },
+      //     });
+      //   })
+      //   .catch(() =>
+      //     toast.error("ERRO", {
+      //       type: "error",
+      //     })
+      //   )
+      //   .finally(() => {
+      //     setIsSendind(false);
+      //   });
     },
-    [data]
+    [data, allUsers]
   );
+
+  useEffect(() => {
+    allUsers.map(user => dispatch(addNewUser(user)))
+  }, [])
   return (
     <div>
       <Nav logo={Card} item={menuItem} />

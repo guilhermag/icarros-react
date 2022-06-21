@@ -1,13 +1,21 @@
-import { Reducer } from 'redux';
+import { createSlice } from '@reduxjs/toolkit';
 
-const INITIAL_STATE = {
-  user: []
+const initialState = {
+  users: []
 }
 
-const AllUsers = ( state= INITIAL_STATE, action ) => {
-  switch(action.type) {
-    
+const AllUsers = createSlice({
+  name: 'allUsers',
+  initialState,
+  reducers: {
+    addNewUser: (state, action) => {
+      state.users = [...state.users, action.payload];
+    }
   }
-}
+});
 
-export default AllUsers;
+export const { addNewUser } = AllUsers.actions;
+
+export const allUsersData = (state) => state.allUsersSlice;
+
+export default AllUsers.reducer;
